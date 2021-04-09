@@ -1,13 +1,24 @@
 object mariano {
-	// para este objeto no damos pistas
-	// definimos algunos métodos para que compile el test
+	const bolsaDeGolosinas = [] 
 	
-	method comprar(golosina) { /* completar */ }
-	method golosinas() {
-		/* cambiar por la implementacion correcta */ 
-		return [] 
+	method comprar(golosina) {
+		bolsaDeGolosinas.add(golosina)
 	}
 	
-	method probarGolosinas() { /* completar */ }
+	method desechar(golosina) {
+		bolsaDeGolosinas.remove(golosina)
+	}
+	
+	method cantidadDeGolosinas() = bolsaDeGolosinas.size()
+	
+	method tieneLaGolosina(golosina) = bolsaDeGolosinas.contains(golosina)
+	
+	method golosinas() = bolsaDeGolosinas
+	
+	method probarGolosinas() { 
+		bolsaDeGolosinas.forEach({ golosina => golosina.mordisco() })
+	}
+	
+	method preciosCuidados() = bolsaDeGolosinas.all({ golosina => golosina.precio() <= 10 })
 }
 
