@@ -17,14 +17,13 @@ describe "tests de mariano" {
 		assert.that(mariano.tieneLaGolosina(bombon))
 		assert.notThat(mariano.tieneLaGolosina(chupetin))
 	}
-	
+
 	test "test desechar" {
 		assert.equals(3, mariano.golosinas().size())
 		mariano.desechar(chocolatin)
 		assert.equals(2, mariano.golosinas().size())
 	}
-	
-	
+
 	test "probar golosinas" {
 		/* habilitar las lineas anuladas cuando se complete la definicion 
 		 * de las golosinas
@@ -42,7 +41,16 @@ describe "tests de mariano" {
 		assert.that(mariano.preciosCuidados())
 	}
 
-	
-}
+	test "sabor mas populares" {
+		// sabores = [chocolate, frutilla, chocolate, naranja, naranja, chocolate]
+		mariano.comprar(chocolatin)
+		mariano.comprar(chocolatin)
+		mariano.comprar(alfajor)
+		mariano.comprar(chupetin)
+		mariano.comprar(chupetin)
+		
+		assert.equals(chocolate, mariano.saborMasPopular())
+	}
 
+}
 

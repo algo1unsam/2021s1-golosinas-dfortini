@@ -15,7 +15,7 @@ object bombon {
 	}
 
 	method gusto() {
-		return "frutilla"
+		return frutilla
 	}
 
 	method libreGluten() {
@@ -41,7 +41,7 @@ object alfajor {
 	}
 
 	method gusto() {
-		return "chocolate"
+		return chocolate
 	}
 
 	method libreGluten() {
@@ -67,7 +67,7 @@ object caramelo {
 	}
 
 	method gusto() {
-		return "frutilla"
+		return frutilla
 	}
 
 	method libreGluten() {
@@ -88,7 +88,7 @@ object chupetin {
 		peso = if (peso > 2) peso * 0.9 else peso
 	}
 
-	method gusto() = "naranja"
+	method gusto() = naranja
 
 	method libreGluten() = true
 
@@ -106,7 +106,7 @@ object oblea {
 		peso = if (peso > 70) peso * 0.5 else peso * 0.75
 	}
 
-	method gusto() = "vainilla"
+	method gusto() = vainilla
 
 	method libreGluten() = false
 
@@ -130,7 +130,7 @@ object chocolatin {
 
 	method precio() = pesoInicial * 0.5
 
-	method gusto() = "chocolate"
+	method gusto() = chocolate
 
 	method libreGluten() = false
 
@@ -170,23 +170,48 @@ object golosinaBaniada {
 object tuttifrutti {
 
 	var property libreGluten = true
-	var gusto
+	var gusto = frutilla
 
 	method precio() = if (libreGluten) 7 else 10
 
 	method peso() = 5
 
 	method mordisco() {
-		if (gusto == "frutilla") {
-			gusto = "chocolate"
-		} else if (gusto == "chocolate") {
-			gusto = "naranja"
-		} else {
-			gusto = "frutilla"
-		}
+		gusto = gusto.siguiente()
 	}
 
 	method gusto() = gusto
+}
+
+object frutilla {
+
+	method siguiente() {
+		return chocolate
+	}
+
+}
+
+object chocolate {
+
+	method siguiente() {
+		return naranja
+	}
+
+}
+
+object naranja {
+
+	method siguiente() {
+		return frutilla
+	}
+
+}
+
+object vainilla {
+
+	method siguiente() {
+		return frutilla
+	}
 
 }
 
